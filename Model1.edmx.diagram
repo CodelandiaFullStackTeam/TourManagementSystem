@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2de27935686428cb768c2d010e21e76" Name="Diagram1">
+        <EntityTypeShape EntityType="TourDbModel.Category" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.City" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Country" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Excursion" Width="1.5" PointX="10.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Employee" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Guard" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Nutrition" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Policy" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Position" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Service" Width="1.5" PointX="10.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Tour" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Tours_Cities" Width="1.5" PointX="9.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Tours_Destinations" Width="1.5" PointX="9.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Tours_Excursions" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Tours_Policies" Width="1.5" PointX="12.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourDbModel.Tours_Services" Width="1.5" PointX="12.75" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="TourDbModel.FK__Tours__CategoryI__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Cities__CountryI__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Excursion__CityI__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Cit__CityI__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Exc__Excur__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Employees__Posit__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Guards__Employee__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours__GuardId__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours__Nutrition__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Pol__Polic__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Ser__Servi__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Cit__TourI__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Des__TourI__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Exc__TourI__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Pol__TourI__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="TourDbModel.FK__Tours_Ser__TourI__5070F446" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

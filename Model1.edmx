@@ -1,0 +1,1130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TourDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Excursions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Guards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nutritions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Policies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tours">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="GuardId" Type="int" Nullable="false" />
+          <Property Name="NutritionId" Type="int" Nullable="false" />
+          <Property Name="BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsHotelIncluded" Type="bit" Nullable="false" />
+          <Property Name="IsFotoSessionIncluded" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tours_Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tours_Destinations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+          <Property Name="MeetingDateFrom" Type="datetime" Nullable="false" />
+          <Property Name="MeetingDateTo" Type="datetime" Nullable="false" />
+          <Property Name="DestinationAdress" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="DepartureTime" Type="datetime" Nullable="false" />
+          <Property Name="ArrivalTime" Type="datetime" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tours_Excursions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+          <Property Name="ExcursionId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tours_Policies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+          <Property Name="PolicyId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tours_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+          <Property Name="ServiceId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cities__CountryI__276EDEB3">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Excursion__CityI__30F848ED">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Excursions" Type="Self.Excursions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Excursions">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Posit__3D5E1FD2">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Guards__Employee__403A8C7D">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Guards" Type="Self.Guards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guards">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours__CategoryI__440B1D61">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours__GuardId__44FF419A">
+          <End Role="Guards" Type="Self.Guards" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="GuardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours__Nutrition__45F365D3">
+          <End Role="Nutritions" Type="Self.Nutritions" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nutritions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="NutritionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Cit__CityI__4CA06362">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Tours_Cities" Type="Self.Tours_Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Cities">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Cit__TourI__4BAC3F29">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="Tours_Cities" Type="Self.Tours_Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Cities">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Des__TourI__5EBF139D">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="Tours_Destinations" Type="Self.Tours_Destinations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Destinations">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Exc__Excur__5629CD9C">
+          <End Role="Excursions" Type="Self.Excursions" Multiplicity="1" />
+          <End Role="Tours_Excursions" Type="Self.Tours_Excursions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excursions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Excursions">
+              <PropertyRef Name="ExcursionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Exc__TourI__5535A963">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="Tours_Excursions" Type="Self.Tours_Excursions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Excursions">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Pol__Polic__5AEE82B9">
+          <End Role="Policies" Type="Self.Policies" Multiplicity="1" />
+          <End Role="Tours_Policies" Type="Self.Tours_Policies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Policies">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Pol__TourI__59FA5E80">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="Tours_Policies" Type="Self.Tours_Policies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Policies">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Ser__Servi__5165187F">
+          <End Role="Services" Type="Self.Services" Multiplicity="1" />
+          <End Role="Tours_Services" Type="Self.Tours_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Services">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Ser__TourI__5070F446">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="Tours_Services" Type="Self.Tours_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Services">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TourDbModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Excursions" EntityType="Self.Excursions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Guards" EntityType="Self.Guards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nutritions" EntityType="Self.Nutritions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Policies" EntityType="Self.Policies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours" EntityType="Self.Tours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours_Cities" EntityType="Self.Tours_Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours_Destinations" EntityType="Self.Tours_Destinations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours_Excursions" EntityType="Self.Tours_Excursions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours_Policies" EntityType="Self.Tours_Policies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours_Services" EntityType="Self.Tours_Services" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cities__CountryI__276EDEB3" Association="Self.FK__Cities__CountryI__276EDEB3">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Excursion__CityI__30F848ED" Association="Self.FK__Excursion__CityI__30F848ED">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Excursions" EntitySet="Excursions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Posit__3D5E1FD2" Association="Self.FK__Employees__Posit__3D5E1FD2">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Guards__Employee__403A8C7D" Association="Self.FK__Guards__Employee__403A8C7D">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Guards" EntitySet="Guards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours__CategoryI__440B1D61" Association="Self.FK__Tours__CategoryI__440B1D61">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours__GuardId__44FF419A" Association="Self.FK__Tours__GuardId__44FF419A">
+            <End Role="Guards" EntitySet="Guards" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours__Nutrition__45F365D3" Association="Self.FK__Tours__Nutrition__45F365D3">
+            <End Role="Nutritions" EntitySet="Nutritions" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Cit__CityI__4CA06362" Association="Self.FK__Tours_Cit__CityI__4CA06362">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Tours_Cities" EntitySet="Tours_Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Cit__TourI__4BAC3F29" Association="Self.FK__Tours_Cit__TourI__4BAC3F29">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Cities" EntitySet="Tours_Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Des__TourI__5EBF139D" Association="Self.FK__Tours_Des__TourI__5EBF139D">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Destinations" EntitySet="Tours_Destinations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Exc__Excur__5629CD9C" Association="Self.FK__Tours_Exc__Excur__5629CD9C">
+            <End Role="Excursions" EntitySet="Excursions" />
+            <End Role="Tours_Excursions" EntitySet="Tours_Excursions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Exc__TourI__5535A963" Association="Self.FK__Tours_Exc__TourI__5535A963">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Excursions" EntitySet="Tours_Excursions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Pol__Polic__5AEE82B9" Association="Self.FK__Tours_Pol__Polic__5AEE82B9">
+            <End Role="Policies" EntitySet="Policies" />
+            <End Role="Tours_Policies" EntitySet="Tours_Policies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Pol__TourI__59FA5E80" Association="Self.FK__Tours_Pol__TourI__59FA5E80">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Policies" EntitySet="Tours_Policies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Ser__Servi__5165187F" Association="Self.FK__Tours_Ser__Servi__5165187F">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Tours_Services" EntitySet="Tours_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Ser__TourI__5070F446" Association="Self.FK__Tours_Ser__TourI__5070F446">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Services" EntitySet="Tours_Services" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TourDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tours" Relationship="Self.FK__Tours__CategoryI__440B1D61" FromRole="Categories" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Cities__CountryI__276EDEB3" FromRole="Cities" ToRole="Countries" />
+          <NavigationProperty Name="Excursions" Relationship="Self.FK__Excursion__CityI__30F848ED" FromRole="Cities" ToRole="Excursions" />
+          <NavigationProperty Name="Tours_Cities" Relationship="Self.FK__Tours_Cit__CityI__4CA06362" FromRole="Cities" ToRole="Tours_Cities" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Cities__CountryI__276EDEB3" FromRole="Countries" ToRole="Cities" />
+        </EntityType>
+        <EntityType Name="Excursion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Excursion__CityI__30F848ED" FromRole="Excursions" ToRole="Cities" />
+          <NavigationProperty Name="Tours_Excursions" Relationship="Self.FK__Tours_Exc__Excur__5629CD9C" FromRole="Excursions" ToRole="Tours_Excursions" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Self.FK__Employees__Posit__3D5E1FD2" FromRole="Employees" ToRole="Positions" />
+          <NavigationProperty Name="Guards" Relationship="Self.FK__Guards__Employee__403A8C7D" FromRole="Employees" ToRole="Guards" />
+        </EntityType>
+        <EntityType Name="Guard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Guards__Employee__403A8C7D" FromRole="Guards" ToRole="Employees" />
+          <NavigationProperty Name="Tours" Relationship="Self.FK__Tours__GuardId__44FF419A" FromRole="Guards" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="Nutrition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tours" Relationship="Self.FK__Tours__Nutrition__45F365D3" FromRole="Nutritions" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tours_Policies" Relationship="Self.FK__Tours_Pol__Polic__5AEE82B9" FromRole="Policies" ToRole="Tours_Policies" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Posit__3D5E1FD2" FromRole="Positions" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tours_Services" Relationship="Self.FK__Tours_Ser__Servi__5165187F" FromRole="Services" ToRole="Tours_Services" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="GuardId" Type="Int32" Nullable="false" />
+          <Property Name="NutritionId" Type="Int32" Nullable="false" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHotelIncluded" Type="Boolean" Nullable="false" />
+          <Property Name="IsFotoSessionIncluded" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Tours__CategoryI__440B1D61" FromRole="Tours" ToRole="Categories" />
+          <NavigationProperty Name="Guard" Relationship="Self.FK__Tours__GuardId__44FF419A" FromRole="Tours" ToRole="Guards" />
+          <NavigationProperty Name="Nutrition" Relationship="Self.FK__Tours__Nutrition__45F365D3" FromRole="Tours" ToRole="Nutritions" />
+          <NavigationProperty Name="Tours_Cities" Relationship="Self.FK__Tours_Cit__TourI__4BAC3F29" FromRole="Tours" ToRole="Tours_Cities" />
+          <NavigationProperty Name="Tours_Destinations" Relationship="Self.FK__Tours_Des__TourI__5EBF139D" FromRole="Tours" ToRole="Tours_Destinations" />
+          <NavigationProperty Name="Tours_Excursions" Relationship="Self.FK__Tours_Exc__TourI__5535A963" FromRole="Tours" ToRole="Tours_Excursions" />
+          <NavigationProperty Name="Tours_Policies" Relationship="Self.FK__Tours_Pol__TourI__59FA5E80" FromRole="Tours" ToRole="Tours_Policies" />
+          <NavigationProperty Name="Tours_Services" Relationship="Self.FK__Tours_Ser__TourI__5070F446" FromRole="Tours" ToRole="Tours_Services" />
+        </EntityType>
+        <EntityType Name="Tours_Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Tours_Cit__CityI__4CA06362" FromRole="Tours_Cities" ToRole="Cities" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Tours_Cit__TourI__4BAC3F29" FromRole="Tours_Cities" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="Tours_Destinations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourId" Type="Int32" Nullable="false" />
+          <Property Name="MeetingDateFrom" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MeetingDateTo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DestinationAdress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartureTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ArrivalTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Tours_Des__TourI__5EBF139D" FromRole="Tours_Destinations" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="Tours_Excursions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourId" Type="Int32" Nullable="false" />
+          <Property Name="ExcursionId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Excursion" Relationship="Self.FK__Tours_Exc__Excur__5629CD9C" FromRole="Tours_Excursions" ToRole="Excursions" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Tours_Exc__TourI__5535A963" FromRole="Tours_Excursions" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="Tours_Policies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourId" Type="Int32" Nullable="false" />
+          <Property Name="PolicyId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Policy" Relationship="Self.FK__Tours_Pol__Polic__5AEE82B9" FromRole="Tours_Policies" ToRole="Policies" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Tours_Pol__TourI__59FA5E80" FromRole="Tours_Policies" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="Tours_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourId" Type="Int32" Nullable="false" />
+          <Property Name="ServiceId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Service" Relationship="Self.FK__Tours_Ser__Servi__5165187F" FromRole="Tours_Services" ToRole="Services" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Tours_Ser__TourI__5070F446" FromRole="Tours_Services" ToRole="Tours" />
+        </EntityType>
+        <Association Name="FK__Tours__CategoryI__440B1D61">
+          <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cities__CountryI__276EDEB3">
+          <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+          <End Role="Cities" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Excursion__CityI__30F848ED">
+          <End Role="Cities" Type="Self.City" Multiplicity="1" />
+          <End Role="Excursions" Type="Self.Excursion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Excursions">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Cit__CityI__4CA06362">
+          <End Role="Cities" Type="Self.City" Multiplicity="1" />
+          <End Role="Tours_Cities" Type="Self.Tours_Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Cities">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Exc__Excur__5629CD9C">
+          <End Role="Excursions" Type="Self.Excursion" Multiplicity="1" />
+          <End Role="Tours_Excursions" Type="Self.Tours_Excursions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excursions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Excursions">
+              <PropertyRef Name="ExcursionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Posit__3D5E1FD2">
+          <End Role="Positions" Type="Self.Position" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Guards__Employee__403A8C7D">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Guards" Type="Self.Guard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guards">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours__GuardId__44FF419A">
+          <End Role="Guards" Type="Self.Guard" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="GuardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours__Nutrition__45F365D3">
+          <End Role="Nutritions" Type="Self.Nutrition" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nutritions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="NutritionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Pol__Polic__5AEE82B9">
+          <End Role="Policies" Type="Self.Policy" Multiplicity="1" />
+          <End Role="Tours_Policies" Type="Self.Tours_Policies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Policies">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Ser__Servi__5165187F">
+          <End Role="Services" Type="Self.Service" Multiplicity="1" />
+          <End Role="Tours_Services" Type="Self.Tours_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Services">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Cit__TourI__4BAC3F29">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Tours_Cities" Type="Self.Tours_Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Cities">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Des__TourI__5EBF139D">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Tours_Destinations" Type="Self.Tours_Destinations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Destinations">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Exc__TourI__5535A963">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Tours_Excursions" Type="Self.Tours_Excursions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Excursions">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Pol__TourI__59FA5E80">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Tours_Policies" Type="Self.Tours_Policies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Policies">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tours_Ser__TourI__5070F446">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Tours_Services" Type="Self.Tours_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tours_Services">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TourDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Excursions" EntityType="Self.Excursion" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Guards" EntityType="Self.Guard" />
+          <EntitySet Name="Nutritions" EntityType="Self.Nutrition" />
+          <EntitySet Name="Policies" EntityType="Self.Policy" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tours" EntityType="Self.Tour" />
+          <EntitySet Name="Tours_Cities" EntityType="Self.Tours_Cities" />
+          <EntitySet Name="Tours_Destinations" EntityType="Self.Tours_Destinations" />
+          <EntitySet Name="Tours_Excursions" EntityType="Self.Tours_Excursions" />
+          <EntitySet Name="Tours_Policies" EntityType="Self.Tours_Policies" />
+          <EntitySet Name="Tours_Services" EntityType="Self.Tours_Services" />
+          <AssociationSet Name="FK__Tours__CategoryI__440B1D61" Association="Self.FK__Tours__CategoryI__440B1D61">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cities__CountryI__276EDEB3" Association="Self.FK__Cities__CountryI__276EDEB3">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Excursion__CityI__30F848ED" Association="Self.FK__Excursion__CityI__30F848ED">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Excursions" EntitySet="Excursions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Cit__CityI__4CA06362" Association="Self.FK__Tours_Cit__CityI__4CA06362">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Tours_Cities" EntitySet="Tours_Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Exc__Excur__5629CD9C" Association="Self.FK__Tours_Exc__Excur__5629CD9C">
+            <End Role="Excursions" EntitySet="Excursions" />
+            <End Role="Tours_Excursions" EntitySet="Tours_Excursions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Posit__3D5E1FD2" Association="Self.FK__Employees__Posit__3D5E1FD2">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Guards__Employee__403A8C7D" Association="Self.FK__Guards__Employee__403A8C7D">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Guards" EntitySet="Guards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours__GuardId__44FF419A" Association="Self.FK__Tours__GuardId__44FF419A">
+            <End Role="Guards" EntitySet="Guards" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours__Nutrition__45F365D3" Association="Self.FK__Tours__Nutrition__45F365D3">
+            <End Role="Nutritions" EntitySet="Nutritions" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Pol__Polic__5AEE82B9" Association="Self.FK__Tours_Pol__Polic__5AEE82B9">
+            <End Role="Policies" EntitySet="Policies" />
+            <End Role="Tours_Policies" EntitySet="Tours_Policies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Ser__Servi__5165187F" Association="Self.FK__Tours_Ser__Servi__5165187F">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Tours_Services" EntitySet="Tours_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Cit__TourI__4BAC3F29" Association="Self.FK__Tours_Cit__TourI__4BAC3F29">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Cities" EntitySet="Tours_Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Des__TourI__5EBF139D" Association="Self.FK__Tours_Des__TourI__5EBF139D">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Destinations" EntitySet="Tours_Destinations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Exc__TourI__5535A963" Association="Self.FK__Tours_Exc__TourI__5535A963">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Excursions" EntitySet="Tours_Excursions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Pol__TourI__59FA5E80" Association="Self.FK__Tours_Pol__TourI__59FA5E80">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Policies" EntitySet="Tours_Policies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tours_Ser__TourI__5070F446" Association="Self.FK__Tours_Ser__TourI__5070F446">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Tours_Services" EntitySet="Tours_Services" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TourDbModelStoreContainer" CdmEntityContainer="TourDbEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="TourDbModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="TourDbModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="TourDbModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Excursions">
+            <EntityTypeMapping TypeName="TourDbModel.Excursion">
+              <MappingFragment StoreEntitySet="Excursions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="TourDbModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guards">
+            <EntityTypeMapping TypeName="TourDbModel.Guard">
+              <MappingFragment StoreEntitySet="Guards">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nutritions">
+            <EntityTypeMapping TypeName="TourDbModel.Nutrition">
+              <MappingFragment StoreEntitySet="Nutritions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Policies">
+            <EntityTypeMapping TypeName="TourDbModel.Policy">
+              <MappingFragment StoreEntitySet="Policies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="TourDbModel.Position">
+              <MappingFragment StoreEntitySet="Positions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="TourDbModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TourDbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="TourDbModel.Tour">
+              <MappingFragment StoreEntitySet="Tours">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="GuardId" ColumnName="GuardId" />
+                <ScalarProperty Name="NutritionId" ColumnName="NutritionId" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsHotelIncluded" ColumnName="IsHotelIncluded" />
+                <ScalarProperty Name="IsFotoSessionIncluded" ColumnName="IsFotoSessionIncluded" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours_Cities">
+            <EntityTypeMapping TypeName="TourDbModel.Tours_Cities">
+              <MappingFragment StoreEntitySet="Tours_Cities">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours_Destinations">
+            <EntityTypeMapping TypeName="TourDbModel.Tours_Destinations">
+              <MappingFragment StoreEntitySet="Tours_Destinations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+                <ScalarProperty Name="MeetingDateFrom" ColumnName="MeetingDateFrom" />
+                <ScalarProperty Name="MeetingDateTo" ColumnName="MeetingDateTo" />
+                <ScalarProperty Name="DestinationAdress" ColumnName="DestinationAdress" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours_Excursions">
+            <EntityTypeMapping TypeName="TourDbModel.Tours_Excursions">
+              <MappingFragment StoreEntitySet="Tours_Excursions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+                <ScalarProperty Name="ExcursionId" ColumnName="ExcursionId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours_Policies">
+            <EntityTypeMapping TypeName="TourDbModel.Tours_Policies">
+              <MappingFragment StoreEntitySet="Tours_Policies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+                <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours_Services">
+            <EntityTypeMapping TypeName="TourDbModel.Tours_Services">
+              <MappingFragment StoreEntitySet="Tours_Services">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

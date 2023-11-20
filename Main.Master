@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="TourManagementSystem.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <link href="<% =Page.ResolveClientUrl("~/Content/assets/css/app.min.css") %>" rel="stylesheet" />
+
+    <script>
+        function showMessage(title,message,isSuccess) {
+            swal(title, message, isSuccess ? "success" : "warning");
+        }
+
+        function showPopUp(dvContent, sizeParam) {
+            // get main div by id
+            let div = document.getElementById(dvContent);
+
+            // get backdrop by id
+            let dvBackDrop = document.getElementById("backdrop");
+
+            //remove style none property from divbackdrop
+            dvBackDrop.style.display = "block";
+
+            // remove style none property from div
+            div.style.display = "block";
+
+            divModalDialog = div.childNodes[1];
+
+            // set pop up size by parameter
+            switch (sizeParam) {
+                case 0:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog";
+                    break;
+                case 1:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-dialog-scrollable";
+                    break;
+                case 2:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-xl";
+                    break;
+                case 3:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-lg";
+                    break;
+                case 4:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-sm";
+                    break;
+                case 5:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-dialog-centered";
+                    break;
+                case 6:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-dialog-centered modal-dialog-scrollable";
+                    break;
+                case 7:
+                    var divModelContent = divModalDialog.childNodes[1];
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-fullscreen";
+                    divModelContent.className = "";
+                    divModelContent.className = "modal-content modal-fullscreen-content";
+                    break;
+                case 8:
+                    divModalDialog.className = "";
+                    divModalDialog.className = "modal-dialog modal-dialog-scrollable modal-xl";
+                    break;
+                default:
+            }
+        }
+    </script>
+
+
+    <form runat="server">
+       
+      <div class="layout">
+            <div class="vertical-layout">
+                <div class="header-text-dark header-nav layout-vertical">
+                    <div class="header-nav-wrap">
+                        <div class="header-nav-left">
+                            <div class="header-nav-item desktop-toggle">
+                                <div class="header-nav-item-select cursor-pointer">
+                                    <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="header-nav-item mobile-toggle">
+                                <div class="header-nav-item-select cursor-pointer">
+                                    <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="side-nav vertical-menu nav-menu-light scrollable">
+
+                    <ul class="nav-menu">
+                        <li class="nav-menu-item">
+                            <a href="<%= Page.ResolveClientUrl("~/Default.aspx") %>">
+                                <i class="fa-solid fa-house"></i>
+                                <span class="nav-menu-item-title">Home page</span>
+                            </a>
+                        </li>
+                        <li class="nav-group-title">Admin Tool</li>
+                        <li class="nav-menu-item">
+                            <a href="<%= Page.ResolveClientUrl("~/Groups.aspx") %>">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span class="nav-menu-item-title">Groups</span>
+                            </a>
+                        </li>
+                         <li class="nav-menu-item">
+                            <a href="<%= Page.ResolveClientUrl("~/Countries.aspx") %>">
+                                <i class="fa-solid fa-globe"></i>
+                                <span class="nav-menu-item-title">Countries</span>
+                            </a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="<%= Page.ResolveClientUrl("~/Stadiums.aspx") %>">
+                                <i class="fa-regular fa-square"></i>
+                                <span class="nav-menu-item-title">Stadiums</span>
+                            </a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="<%= Page.ResolveClientUrl("~/Referees.aspx") %>">
+                               <i class="fa-solid fa-person"></i>
+                                <span class="nav-menu-item-title">Referees</span>
+                            </a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="<%= Page.ResolveClientUrl("~/Nationalities.aspx") %>">
+                               <i class="fa-solid fa-earth-americas"></i>
+                                <span class="nav-menu-item-title">Nationalities</span>
+                            </a>
+                        </li>
+
+                       
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="main">
+                        <asp:ContentPlaceHolder runat="server" ID="main">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+    </form>
+    <script src="<%= Page.ResolveClientUrl("~/Content/assets/js/vendors.min.js") %>"></script>
+    <script src="<%= Page.ResolveClientUrl("~/Content/assets/js/app.min.js") %>"></script>
+</body>
+</html>
